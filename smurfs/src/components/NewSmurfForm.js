@@ -25,7 +25,7 @@ const NewSmurfForm = props => {
 
   return (
     <div>
-      <h1 className="subtitle">Populate Smurf Village</h1>
+      <h1 className="subtitle">Populate Smurf Village:</h1>
       <form>
         <div className="field">
           <div className="control">
