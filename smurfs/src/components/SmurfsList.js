@@ -1,30 +1,31 @@
 import React, { useEffect } from "react";
-import Smurf from './Smurf';
+import Smurf from "./Smurf";
 import { connect } from "react-redux";
-import axios from 'axios';
-import { getSmurfs } from '../actions';
-import { deleteSmurf } from '../actions';
+import axios from "axios";
+import { getSmurfs } from "../actions";
+import { deleteSmurf } from "../actions";
 
 const SmurfsList = props => {
+  useEffect(() => {
+    props.getSmurfs();
+  }, []);
 
-    
-    useEffect(() => {
-        props.getSmurfs();
-    }, [])
-    
-    
-
-    return(
-        props.smurfs.map((smurf, index) => {
-            return <Smurf smurf={smurf} key={index} />
-        })
-    )
-}
+  return (
+    <div>
+      <h1 className="subtitle">Smurfs Living in the Village:</h1>
+      <div className="flexy">
+        {props.smurfs.map((smurf, index) => {
+          return <Smurf smurf={smurf} key={index} />;
+        })}
+      </div>
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
-    return {
-        smurfs: state.smurfs
-    }
-}
+  return {
+    smurfs: state.smurfs
+  };
+};
 
-export default connect(mapStateToProps, {getSmurfs})(SmurfsList)
+export default connect(mapStateToProps, { getSmurfs })(SmurfsList);

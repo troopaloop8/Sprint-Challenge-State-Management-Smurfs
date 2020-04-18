@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addNewSmurf } from "../actions";
 
-
 const NewSmurfForm = props => {
   const [smurf, setSmurf] = useState({});
 
@@ -19,38 +18,58 @@ const NewSmurfForm = props => {
     setSmurf({
       name: "",
       age: "",
-      height: "",
-    })
+      height: ""
+    });
     console.log(smurf);
   };
 
   return (
     <div>
+      <h1 className="subtitle">Populate Smurf Village</h1>
       <form>
-        <label htmlFor="name">Name: </label>
+        <div className="field">
+          <div className="control">
+            <label htmlFor="name"></label>
+            <input
+              className="input is-info"
+              placeholder="Name"
+              type="text"
+              name="name"
+              value={smurf.name}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <div className="control">
+            <label htmlFor="age"></label>
+            <input
+              className="input is-info"
+              placeholder="Age"
+              type="text"
+              name="age"
+              value={smurf.age}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <div className="control">
+            <input
+              className="input is-info"
+              placeholder="Height (in cm)"
+              type="text"
+              name="height"
+              value={smurf.height}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <label htmlFor="height"></label>
         <input
-          type="text"
-          name="name"
-          value={smurf.name}
-          onChange={handleChange}
-        />
-        <label htmlFor="age">Age: </label>
-        <input
-          type="text"
-          name="age"
-          value={smurf.age}
-          onChange={handleChange}
-        />
-        <label htmlFor="height">Height: </label>
-        <input
-          type="text"
-          name="height"
-          value={smurf.height}
-          onChange={handleChange}
-        />
-        <input
+          className="button is-small is-info is-bold"
           type="submit"
-          value="Add Smurf to Village"
+          value="Admit Smurf to Village"
           onClick={handleSubmit}
         />
       </form>
@@ -58,5 +77,4 @@ const NewSmurfForm = props => {
   );
 };
 
-
-export default connect(null, {addNewSmurf})(NewSmurfForm);
+export default connect(null, { addNewSmurf })(NewSmurfForm);

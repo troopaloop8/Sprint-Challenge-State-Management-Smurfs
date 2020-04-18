@@ -13,7 +13,7 @@ import {
 const initialState = {
   smurfs: [],
   isLoading: false,
-  error: "",
+  error: ""
 };
 
 export const reducer = (state = initialState, action) => {
